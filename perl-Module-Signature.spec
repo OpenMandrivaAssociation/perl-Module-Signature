@@ -1,7 +1,7 @@
 %define	module	Module-Signature
 %define	name	perl-%{module}
 %define	version	0.55
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 
 Version:	%{version}
 Name:		%{name}
