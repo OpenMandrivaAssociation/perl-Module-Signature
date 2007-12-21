@@ -17,6 +17,7 @@ Buildrequires:	perl-devel
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This is a perl module to check and create SIGNATURE files
