@@ -1,7 +1,7 @@
 %define	module	Module-Signature
 %define	name	perl-%{module}
 %define	version	0.55
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 
 Version:	%{version}
 Name:		%{name}
@@ -11,9 +11,7 @@ License:	Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/Module/%{module}-%{version}.tar.gz
-%if %{mdkversion} < 1010
-Buildrequires:	perl-devel
-%endif
+Patch:      Module-Signature-0.55-skip-rpm-files.patch
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
 BuildArch:	noarch
@@ -25,18 +23,18 @@ for CPAN distributions.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch -p 1
 
 %build
-(echo -n y; yes n) | \
-(%{__perl} Makefile.PL INSTALLDIRS=vendor
-%make)
+%{__perl} Makefile.PL INSTALLDIRS=vendor --skipdeps </dev/null
+%make
 
 %check
-yes n | %__make test
+%__make test
 
 %install
 rm -rf %{buildroot}
-yes n | %{makeinstall_std}
+%{makeinstall_std}
 
 %clean
 rm -rf %{buildroot}
