@@ -1,29 +1,29 @@
-%define	module	Module-Signature
-%define	name	perl-%{module}
-%define	version	0.55
-%define	release	%mkrel 4
+%define	upstream_name	 Module-Signature
+%define	upstream_version 0.55
 
-Version:	%{version}
-Name:		%{name}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Check and create SIGNATURE files for CPAN distributions
 License:	Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source:		http://www.cpan.org/modules/by-module/Module/%{module}-%{version}.tar.gz
-Patch:      Module-Signature-0.55-skip-rpm-files.patch
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Module/%{upstream_name}-%{upstream_version}.tar.gz
+Patch0:     Module-Signature-0.55-skip-rpm-files.patch
+
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This is a perl module to check and create SIGNATURE files
 for CPAN distributions.
 
 %prep
-%setup -q -n %{module}-%{version}
-%patch -p 1
+%setup -q -n %{upstream_name}-%{upstream_version}
+%patch0 -p 1
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor --skipdeps </dev/null
@@ -45,4 +45,3 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_mandir}/man*/*
 %{perl_vendorlib}/Module
-
