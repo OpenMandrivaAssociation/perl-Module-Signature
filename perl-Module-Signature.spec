@@ -1,5 +1,5 @@
 %define	upstream_name	 Module-Signature
-%define	upstream_version 0.55
+%define upstream_version 0.60
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -14,6 +14,7 @@ Patch0:     Module-Signature-0.55-skip-rpm-files.patch
 
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
+
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
