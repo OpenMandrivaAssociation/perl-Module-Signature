@@ -1,5 +1,5 @@
 %define	upstream_name	 Module-Signature
-%define upstream_version 0.64
+%define upstream_version 0.65
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -10,7 +10,6 @@ License:	Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Module/%{upstream_name}-%{upstream_version}.tar.gz
-Patch0:     Module-Signature-0.55-skip-rpm-files.patch
 
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
@@ -24,14 +23,13 @@ for CPAN distributions.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
-%patch0 -p 1
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor --skipdeps </dev/null
 %make
 
 %check
-%__make test
+%make test
 
 %install
 rm -rf %{buildroot}
