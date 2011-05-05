@@ -13,7 +13,8 @@ Source0:	http://www.cpan.org/modules/by-module/Module/%{upstream_name}-%{upstrea
 
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
-
+BuildRequires:	perl(Digest::SHA)
+BuildRequires:	perl(IPC::Run)
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
