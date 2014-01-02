@@ -1,14 +1,14 @@
 %define	modname	Module-Signature
-%define modver	0.68
+%define modver 0.73
 
 Summary:	Check and create SIGNATURE files for CPAN distributions
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	10
+Release:	1
 License:	Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Module/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Module/Module-Signature-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
@@ -39,4 +39,5 @@ for CPAN distributions.
 %{perl_vendorlib}/Module
 %{_mandir}/man1/*
 %{_mandir}/man3/*
+
 
