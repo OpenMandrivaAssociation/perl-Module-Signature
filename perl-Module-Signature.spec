@@ -1,10 +1,10 @@
 %define	modname	Module-Signature
-%define modver 0.73
+%define modver 0.83
 
 Summary:	Check and create SIGNATURE files for CPAN distributions
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	8
+Release:	1
 License:	Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
@@ -15,6 +15,7 @@ BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
 BuildRequires:	perl(Digest::SHA)
 BuildRequires:	perl(IPC::Run)
+BuildRequires:	perl(Test::More)
 BuildRequires:	perl-devel
 
 %description
@@ -22,17 +23,17 @@ This is a perl module to check and create SIGNATURE files
 for CPAN distributions.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -n %{modname}-%{modver} -p1
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor --skipdeps </dev/null
-%make
+%__perl Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}" --skipdeps </dev/null
+%make_build
 
 %check
 %make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc AUTHORS Changes README
