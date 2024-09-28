@@ -2,7 +2,7 @@
 
 Summary:	Check and create SIGNATURE files for CPAN distributions
 Name:		perl-%{modname}
-Version:	0.88
+Version:	0.89
 Release:	1
 License:	Artistic
 Group:		Development/Perl
