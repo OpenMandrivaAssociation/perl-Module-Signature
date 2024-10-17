@@ -6,7 +6,7 @@ Version:	0.89
 Release:	1
 License:	Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{modname}
+Url:		https://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Module/Module-Signature-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(inc::Module::Install)
