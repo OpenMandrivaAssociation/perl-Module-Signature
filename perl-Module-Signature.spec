@@ -9,6 +9,7 @@ Group:		Development/Perl
 Url:		https://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Module/Module-Signature-%{version}.tar.gz
 BuildArch:	noarch
+BuildRequires:	make
 BuildRequires:	perl(inc::Module::Install)
 BuildRequires:	perl(Digest::SHA1)
 BuildRequires:	perl(PAR::Dist)
