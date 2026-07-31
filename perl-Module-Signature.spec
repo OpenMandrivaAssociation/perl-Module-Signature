@@ -2,7 +2,7 @@
 
 Summary:	Check and create SIGNATURE files for CPAN distributions
 Name:		perl-%{modname}
-Version:	0.89
+Version:	0.96
 Release:	1
 License:	Artistic
 Group:		Development/Perl
@@ -23,7 +23,7 @@ This is a perl module to check and create SIGNATURE files
 for CPAN distributions.
 
 %prep
-%autosetup -n %{modname}-%{version} -p1
+%autosetup -n Module-Signature-0.96 -p1
 %__perl Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}" --skipdeps </dev/null
 
 %build
