@@ -36,7 +36,7 @@ for CPAN distributions.
 %make_install
 
 %files
-%doc AUTHORS Changes README
+%doc AUTHORS Changes
 %{_bindir}/*
 %{perl_vendorlib}/Module
 %{_mandir}/man1/*
